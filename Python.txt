@@ -1,0 +1,50 @@
+# Простой калькулятор с базовыми операциями
+def simple_calculator():
+    print("Простой калькулятор")
+    print("Доступные операции: +, -, *, /")
+    print("Введите 'q' для выхода")
+    
+    while True:
+        try:
+            # Ввод данных
+            num1 = input("Введите первое число (или 'q' для выхода): ")
+            if num1.lower() == 'q':
+                break
+                
+            operator = input("Введите оператор (+, -, *, /): ")
+            if operator.lower() == 'q':
+                break
+                
+            num2 = input("Введите второе число (или 'q' для выхода): ")
+            if num2.lower() == 'q':
+                break
+            
+            # Преобразование в числа
+            num1 = float(num1)
+            num2 = float(num2)
+            
+            # Выполнение операции
+            if operator == '+':
+                result = num1 + num2
+            elif operator == '-':
+                result = num1 - num2
+            elif operator == '*':
+                result = num1 * num2
+            elif operator == '/':
+                if num2 == 0:
+                    print("Ошибка: деление на ноль!")
+                    continue
+                result = num1 / num2
+            else:
+                print("Неверный оператор!")
+                continue
+            
+            print(f"Результат: {result}")
+            
+        except ValueError:
+            print("Ошибка: введите числа корректно!")
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
+
+if __name__ == "__main__":
+    simple_calculator()
